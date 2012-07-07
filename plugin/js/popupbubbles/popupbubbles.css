@@ -1,0 +1,68 @@
+/* 
+    Document   : popupbubbles
+    Created on : Aug 30, 2011, 12:33:12 AM
+    Author     : WARMAN SUGANDA
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#frame_out {
+    position:absolute;
+    z-index:9999;
+    cursor: auto;
+    display:none;
+}
+
+#frame_header {
+    height: 20px;
+}
+
+#frame_header #tips_title {
+    float: left;
+    color: #FFF;;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+}
+
+#frame_header #tips_close {
+    float:  right;
+    width: 16px;
+    height: 16px;
+    color: #FFF;;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#frame_body {
+    clear: both;
+    background: url('images/bg.png') repeat;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-shadow: none;
+}
+
+#frame_content {
+    border: 1px #383838 solid;
+    background-color: #e8e9e9;
+    padding: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+#frame_bottom {
+    background: url('images/btm.png') no-repeat;
+    background-position: 20px 0;
+    height: 8px;
+}
