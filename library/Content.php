@@ -21,6 +21,7 @@ class Content {
             return new ContentsModel();
         }
     }
+    
     public static function render($name='') {
         $path_msg = Web::path() . 'views/default/' . $name . '.html.php';
         if (file_exists($path_msg)) {
