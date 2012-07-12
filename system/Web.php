@@ -20,14 +20,18 @@ class Web {
         return $subdomain[0];
     }
 
-    public static function title($text = '', $boolWebName = false, $sparator = '') {
-        $title = $text;
-        if ($boolWebName) {
-            $title = self::$webName . ' ' . $sparator . ' ' . $text;
-        }
-        self::$title = $title;
+    public static function setTitle($text = '') {
+        self::$title = $text;
     }
-
+    
+    public static function getTitle($boolWebName = false, $sparator = '') {
+        $title = self::$title;
+        if ($boolWebName) {
+            $title = self::$webName . ' ' . $sparator . ' ' . self::$title;
+        }
+        return $title;
+    }
+    
     public static function main($webName = '', $webFolder = '', $webTemplate = '') {
         self::$webName = $webName;
         self::$webFolder = $webFolder;

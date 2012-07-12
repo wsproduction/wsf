@@ -11,6 +11,7 @@ class Controller {
         Src::plugin()->jQuery();
         Src::plugin()->jQueryCookie();
         Src::plugin()->jQueryUI();
+        Src::plugin()->jDialogBox();
     }
 
     public function loadModel($name) {
