@@ -47,8 +47,8 @@ class Core {
                         $controller = new Index();
 
                         if (method_exists($controller, 'index')) {
-                            $controller->loadModel('Index');
-                            Src::javascript('Index');
+                            $controller->loadModel('index');
+                            Src::javascript('index');
 
                             /*
                              * Mengambil semua variable yang ada di Controllers

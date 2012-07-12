@@ -14,8 +14,8 @@ class Src {
 
     public static function javascript($name) {
         $urlService = URL::getService();
-        $url = $urlService . '://' . Web::$host . '/__MyWeb/' . Web::$webFolder . '/asset/js/' . ucwords($name) . '.js';
-        $file = WEB_ROOT . Web::$webFolder . '/asset/js/' . ucwords($name) . '.js';
+        $url = $urlService . '://' . Web::$host . '/__MyWeb/' . Web::$webFolder . '/asset/js/' . $name . '.js';
+        $file = WEB_ROOT . Web::$webFolder . '/asset/js/' . $name . '.js';
         file_exists($file) ? array_push(self::$js, $url) : null;
     }
 
