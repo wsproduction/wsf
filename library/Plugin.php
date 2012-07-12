@@ -123,7 +123,22 @@ class Plugin {
         $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/elrte13/' . $js;
         array_push(Src::$plugin, $path_js);
         
+        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/elrte13/' . $language;
+        array_push(Src::$plugin, $path_js);
+        
         $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/elrte13/' . $css;
+        array_push(Src::$css, $path_css);
+    }
+    
+    public function jDialogBox() {
+        $js = 'js/jquery.reveal.js';
+        $css = 'css/styles.css';
+        
+        $urlService = URL::getService();
+        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/dialogbox/' . $js;
+        array_push(Src::$plugin, $path_js);
+        
+        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/dialogbox/' . $css;
         array_push(Src::$css, $path_css);
     }
 

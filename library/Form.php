@@ -197,5 +197,13 @@ class Form {
     public static function passMeter() {
         self::$passwordMeter = true;
     }
+    
+    public static function properties($array=array()) {
+        if (count($array) > 0) {
+            foreach ($array as $key => $value) {
+                self::$frmProperties[$key] = $value;
+            }
+        }
+    }
 
 }
