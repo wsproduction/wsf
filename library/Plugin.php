@@ -22,124 +22,73 @@ class Plugin {
     /* {LIST PLUGIN - Javascript} */
 
     public function jQuery() {
-        $file = 'jquery-1.7.1.js';
-        $urlService = URL::getService();
-        $path = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/' . $file;
-        array_push(Src::$plugin, $path);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
+        array_push(Src::$plugin, $pathSrc . 'jquery-1.7.1.js');
     }
 
     public function jQueryCookie() {
-        $file = 'jquery.cookie.js';
-        $urlService = URL::getService();
-        $path = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/' . $file;
-        array_push(Src::$plugin, $path);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.cookie.js');
     }
 
     public function jQueryUI() {
-        $file = 'jquery-ui-1.8.13.custom.min.js';
-        $css = 'css/smoothness/jquery-ui-1.8.13.custom.css';
-        
-        $urlService = URL::getService();
-        $path = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/jquery-ui/' . $file;
-        array_push(Src::$plugin, $path);
-        
-        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/jquery-ui/' . $css;
-        array_push(Src::$css, $path_css);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/jquery-ui/';
+        array_push(Src::$plugin, $pathSrc . 'jquery-ui-1.8.13.custom.min.js');
+        array_push(Src::$css, $pathSrc . 'css/smoothness/jquery-ui-1.8.13.custom.css');
     }
 
     public function jQueryValidation() {
-        $file = 'jquery.validate.js';
-        $urlService = URL::getService();
-        $path = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/' . $file;
-        array_push(Src::$plugin, $path);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.validate.js');
     }
 
     public function jQueryAlphaNumeric() {
-        $file = 'jquery.alphanumeric.pack.js';
-        $urlService = URL::getService();
-        $path = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/' . $file;
-        array_push(Src::$plugin, $path);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.alphanumeric.pack.js');
     }
 
     public function poshytip() {
-        $js = 'jquery.poshytip.js';
-        $config = 'config.poshytip.js';
-        $css = 'tip-twitter/tip-twitter.css';
-
-        $urlService = URL::getService();
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/poshytip/' . $js;
-        array_push(Src::$plugin, $path_js);
-
-        $urlService = URL::getService();
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/poshytip/' . $config;
-        array_push(Src::$plugin, $path_js);
-
-        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/poshytip/' . $css;
-        array_push(Src::$css, $path_css);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/poshytip/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.poshytip.js');
+        array_push(Src::$plugin, $pathSrc . 'config.poshytip.js');
+        array_push(Src::$css, $pathSrc . 'tip-twitter/tip-twitter.css');
     }
-    
+
     public function passwordMeter() {
-        $js = 'jquery.pwdMeter.js';
-        $css = 'style.css';
-        
-        $urlService = URL::getService();
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/passwordmeter/' . $js;
-        array_push(Src::$plugin, $path_js);
-        
-        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/passwordmeter/' . $css;
-        array_push(Src::$css, $path_css);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/passwordmeter/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.pwdMeter.js');
+        array_push(Src::$css, $pathSrc . 'style.css');
     }
-    
+
     public function flexDropDown() {
-        $js = 'flexdropdown.js';
-        $css = 'flexdropdown.css';
-        
-        $urlService = URL::getService();
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/flexdropdown/' . $js;
-        array_push(Src::$plugin, $path_js);
-        
-        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/flexdropdown/' . $css;
-        array_push(Src::$css, $path_css);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/flexdropdown/';
+        array_push(Src::$plugin, $pathSrc . 'flexdropdown.js');
+        array_push(Src::$css, $pathSrc . 'flexdropdown.css');
     }
-    
+
     public function cleditor() {
-        $js = 'jquery.cleditor.js';
-        $css = 'jquery.cleditor.css';
-        
-        $urlService = URL::getService();
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/cleditor130/' . $js;
-        array_push(Src::$plugin, $path_js);
-        
-        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/cleditor130/' . $css;
-        array_push(Src::$css, $path_css);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/cleditor130/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.cleditor.js');
+        array_push(Src::$css, $pathSrc . 'jquery.cleditor.css');
     }
-    
+
     public function elrte() {
-        $js = 'js/elrte.min.js';
-        $language = 'js/i18n/elrte.ru.js';
-        $css = 'css/elrte.min.css';
-        
-        $urlService = URL::getService();
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/elrte13/' . $js;
-        array_push(Src::$plugin, $path_js);
-        
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/elrte13/' . $language;
-        array_push(Src::$plugin, $path_js);
-        
-        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/elrte13/' . $css;
-        array_push(Src::$css, $path_css);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/elrte13/';
+        array_push(Src::$plugin, $pathSrc . 'js/elrte.min.js');
+        array_push(Src::$plugin, $pathSrc . 'js/i18n/elrte.ru.js');
+        array_push(Src::$css, $pathSrc . 'css/elrte.min.css');
     }
-    
+
     public function jDialogBox() {
-        $js = 'js/jquery.reveal.js';
-        $css = 'css/styles.css';
-        
-        $urlService = URL::getService();
-        $path_js = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/dialogbox/' . $js;
-        array_push(Src::$plugin, $path_js);
-        
-        $path_css = $urlService . '://' . Web::$host . '/__MyFramework/plugin/js/dialogbox/' . $css;
-        array_push(Src::$css, $path_css);
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/dialogbox/';
+        array_push(Src::$plugin, $pathSrc . 'js/jquery.reveal.js');
+        array_push(Src::$css, $pathSrc . 'css/styles.css');
+    }
+
+    public function tokenInput() {
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/tokeninput/';
+        array_push(Src::$plugin, $pathSrc . 'src/jquery.tokeninput.js');
+        array_push(Src::$css, $pathSrc . 'styles/styles.css');
     }
 
 }
