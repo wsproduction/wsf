@@ -5,7 +5,7 @@
  *
  * Copyright 2009-2011, Studio 42 Ltd.
  * Licensed under a 3 clauses BSD license
- */ a{outline:0}
+*/ a{outline:0}
 .clearfix:after{content:".";display:block;font-size:0;height:0;clear:both;visibility:hidden}
 .clearfix{display:block}
 .rounded-2{-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px}

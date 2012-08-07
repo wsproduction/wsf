@@ -31,6 +31,16 @@ class Plugin {
         array_push(Src::$plugin, $pathSrc . 'jquery.cookie.js');
     }
 
+    public function jQueryJson() {
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.json-2.3.min.js');
+    }
+
+    public function jQueryForm() {
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.form.js');
+    }
+
     public function jQueryUI() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/jquery-ui/';
         array_push(Src::$plugin, $pathSrc . 'jquery-ui-1.8.13.custom.min.js');
@@ -45,6 +55,11 @@ class Plugin {
     public function jQueryAlphaNumeric() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
         array_push(Src::$plugin, $pathSrc . 'jquery.alphanumeric.pack.js');
+    }
+    
+    public function jQueryBase64() {
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/jquery.base/';
+        array_push(Src::$plugin, $pathSrc . 'base/jquery.base.min.js');
     }
 
     public function poshytip() {
@@ -88,7 +103,8 @@ class Plugin {
     public function tokenInput() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/tokeninput/';
         array_push(Src::$plugin, $pathSrc . 'src/jquery.tokeninput.js');
-        array_push(Src::$css, $pathSrc . 'styles/styles.css');
+        //array_push(Src::$css, $pathSrc . 'styles/token-input.css');
+        array_push(Src::$css, $pathSrc . 'styles/token-input-facebook.css');
     }
 
 }

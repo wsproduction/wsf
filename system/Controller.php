@@ -10,6 +10,7 @@ class Controller {
         
         Src::plugin()->jQuery();
         Src::plugin()->jQueryCookie();
+        Src::plugin()->jQueryJson();
         Src::plugin()->jQueryUI();
         Src::plugin()->jDialogBox();
     }

@@ -21,14 +21,20 @@ class Form {
         
     }
 
-    public static function begin($name = '', $action = '', $method = '') {
+    public static function begin($name = '', $action = '', $method = '', $enctype = false) {
         self::$frmID = $name;
-        if (Web::$childStatus){
-            $action = URL::getService() . '://'. Web::$host . '/' . Web::$webAlias . '/' . $action;
+        if (Web::$childStatus) {
+            $action = URL::getService() . '://' . Web::$host . '/' . Web::$webAlias . '/' . $action;
         } else {
-            $action = URL::getService() . '://'. Web::$host . '/' . $action;
+            $action = URL::getService() . '://' . Web::$host . '/' . $action;
         }
-        echo '<form id="' . $name . '" name="' . $name . '" action="' . $action . '" method="' . $method . '">';
+
+        $valEnctype = '';
+        if ($enctype) {
+            $valEnctype = 'enctype="multipart/form-data"';
+        }
+
+        echo '<form id="' . $name . '" name="' . $name . '" action="' . $action . '" method="' . $method . '" ' . $valEnctype . '>';
     }
 
     public static function end() {
@@ -86,7 +92,7 @@ class Form {
         }
     }
 
-    public static function commit($ket='echo') {
+    public static function commit($ket = 'echo') {
         $t = self::$frmType;
         $p = Parser::attribute(self::$frmProperties);
         $f = '';
@@ -113,10 +119,10 @@ class Form {
                     }
                 }
             }
-            
-            if ($ket=='echo') {
+
+            if ($ket == 'echo') {
                 echo $f;
-            } else if ($ket=='attach') {
+            } else if ($ket == 'attach') {
                 return $f;
             }
 
@@ -197,8 +203,8 @@ class Form {
     public static function passMeter() {
         self::$passwordMeter = true;
     }
-    
-    public static function properties($array=array()) {
+
+    public static function properties($array = array()) {
         if (count($array) > 0) {
             foreach ($array as $key => $value) {
                 self::$frmProperties[$key] = $value;
