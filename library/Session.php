@@ -19,8 +19,8 @@ class Session {
         session_destroy();
     }
     
-    public static function tes() {
-        return 1;
+    public static function id() {
+        return session_id();
     }
 
 }
