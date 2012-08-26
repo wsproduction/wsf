@@ -7,6 +7,7 @@ class Controller {
         $this->url = $this->loadURL();
         $this->message = $this->loadMessage();
         $this->content = $this->loadContent();
+        $this->method = $this->loadMethod();
         
         Src::plugin()->jQuery();
         Src::plugin()->jQueryCookie();
@@ -40,5 +41,9 @@ class Controller {
     public function loadContent() {
         $class = new Content();
         return $class->loadControllers();
+    }
+    
+    public function loadMethod() {
+        return new Method();
     }
 }

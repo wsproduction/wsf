@@ -3,7 +3,17 @@
 class Database extends PDO {
 
     function __construct() {
-        parent::__construct(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
+        switch (DB_TYPE) {
+            case 'mysql':
+                $DSN = DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME;
+                break;
+            case 'odbc':
+                $DSN = 'odbc:Driver={Microsoft Access Driver (*.mdb)};Dbq=' . DB_DIR;
+                break;
+            default:
+                break;
+        }
+        parent::__construct($DSN, DB_USER, DB_PASS);
     }
 
     public function enum($table_name = null, $field_name = null) {
@@ -14,10 +24,6 @@ class Database extends PDO {
         $out = str_replace("')", "", $out);
         $out = explode("','", $out);
         return $out;
-    }
-    
-    public function cekDB() {
-        echo 'dugi';
-    }
+    }  
 
 }

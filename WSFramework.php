@@ -3,7 +3,6 @@
 class WSFramework {
 
     public static function run() {
-
         define('FRAMEWORK_ROOT', BASE_PATH . '/__MyFramework/');
         define('WEB_ROOT', BASE_PATH . '/__MyWeb/');
         
@@ -26,12 +25,12 @@ class WSFramework {
         require_once FRAMEWORK_ROOT . '/library/Plugin.php';
         require_once FRAMEWORK_ROOT . '/library/Form.php';
         require_once FRAMEWORK_ROOT . '/library/Validation.php';
+        require_once FRAMEWORK_ROOT . '/library/Method.php';
         
         // Website Rooter
         require_once WEB_ROOT . 'Router.php';
         
         Core::build();
-        
     }
 
 }
