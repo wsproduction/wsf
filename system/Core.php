@@ -32,7 +32,7 @@ class Core {
             Web::$webAlias = $url[0];
             Web::$childStatus = true;
         } else {
-            Web::$childStatus = true;
+            Web::$childStatus = false;
         }
 
         Web::config();

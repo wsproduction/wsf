@@ -24,6 +24,13 @@ class Database extends PDO {
         $out = str_replace("')", "", $out);
         $out = explode("','", $out);
         return $out;
-    }  
-
+    }
+    
+    public function lastInsID($fieldName='', $tableName='') {
+        $sth = $this->prepare('SELECT MAX(' . $fieldName . ') AS lastID FROM ' . $tableName);
+        $sth->setFetchMode(PDO::FETCH_ASSOC);
+        $sth->execute();
+        $res = $sth->fetchAll();
+        return $res[0]['lastID'];
+    }
 }

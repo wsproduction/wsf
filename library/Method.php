@@ -16,13 +16,34 @@ class Method {
         
     }
 
-    public function post($variableName = '') {
-        $val = trim($_POST[$variableName]);
-        $res = NULL;
-        if ($val!='') {
-            $res = $val;
+    public function post($variableName = '', $defaultValue = NULL) {
+        if (isset($_POST[$variableName])) {
+            $val = trim($_POST[$variableName]);
+            $res = $defaultValue;
+            if ($val != '') {
+                $res = $val;
+            }
+            return $res;
+        } else {
+            return $defaultValue;
         }
-        return $res;
+    }
+
+    public function get($variableName = '', $defaultValue = NULL) {
+        if (isset($_GET[$variableName])) {
+            $val = trim($_GET[$variableName]);
+            $res = $defaultValue;
+            if ($val != '') {
+                $res = $val;
+            }
+            return $res;
+        } else {
+            return $defaultValue;
+        }
+    }
+
+    public function files($variableName = '', $content = '') {
+        return $_FILES[$variableName][$content];
     }
 
 }

@@ -37,12 +37,16 @@ class Src {
     public static function image($file = null, $path = null, $attribute = array()) {
         $urlService = URL::getService();
         $attr = Parser::attribute($attribute);
+        $img = '';
 
         if (empty($path)) {
-            echo '<img src="' . $urlService . '://' . Web::$host . '/__MyWeb/' . Web::$webFolder . '/asset/template/' . Web::$webTemplate . '/images/' . $file . '"' . $attr . '/>';
+            $img = '<img src="' . $urlService . '://' . Web::$host . '/__MyWeb/' . Web::$webFolder . '/asset/template/' . Web::$webTemplate . '/images/' . $file . '"' . $attr . '/>';
         } else {
-            echo '<img src="' . $path . '/' . $file . '"' . $attr . '/>';
+            $img = '<img src="' . $path . '/' . $file . '"' . $attr . '/>';
         }
+        
+        return $img;
+        
     }
 
     public static function icon($file = null, $path = null) {

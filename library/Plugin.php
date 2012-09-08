@@ -19,6 +19,11 @@ class Plugin {
         return new PHPMailer();
     }
 
+    public function PHPUploader() {
+        require FRAMEWORK_ROOT . '/plugin/php/Uploader/upload.php';
+        return new Upload();
+    }
+
     /* {LIST PLUGIN - Javascript} */
 
     public function jQuery() {
@@ -39,6 +44,11 @@ class Plugin {
     public function jQueryForm() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
         array_push(Src::$plugin, $pathSrc . 'jquery.form.js');
+    }
+
+    public function jQueryAutoNumeric() {
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
+        array_push(Src::$plugin, $pathSrc . 'jquery.auto.numeric.js');
     }
 
     public function jQueryUI() {
@@ -106,6 +116,14 @@ class Plugin {
         //array_push(Src::$css, $pathSrc . 'styles/token-input.css');
         array_push(Src::$css, $pathSrc . 'styles/token-input-facebook.css');
     }
+	
+    public function highChart() {
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/highchart/';
+        array_push(Src::$plugin, $pathSrc . 'highcharts.js');
+        array_push(Src::$plugin, $pathSrc . 'modules/exporting.js');
+        //array_push(Src::$css, $pathSrc . 'styles/token-input.css');
+        //array_push(Src::$css, $pathSrc . 'styles/token-input-facebook.css');
+    }	
 
 }
 
