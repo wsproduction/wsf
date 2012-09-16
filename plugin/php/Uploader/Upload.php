@@ -363,5 +363,10 @@ class Upload {
         $NewName = $this->NewFileName . '.' . $ext;
         return $NewName;
     }
-
+    
+    function RemoveFile($filename='') {
+        if (file_exists($filename)) {
+            unlink($filename);
+        }
+    }
 }

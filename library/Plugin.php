@@ -20,8 +20,18 @@ class Plugin {
     }
 
     public function PHPUploader() {
-        require FRAMEWORK_ROOT . '/plugin/php/Uploader/upload.php';
+        require FRAMEWORK_ROOT . '/plugin/php/Uploader/Upload.php';
         return new Upload();
+    }
+
+    public function PHPImageResize() {
+        require FRAMEWORK_ROOT . '/plugin/php/Uploader/ImageResize.php';
+        return new ImageResize();
+    }
+
+    public function PHPDownloader() {
+        require FRAMEWORK_ROOT . '/plugin/php/Downloader/class.chip_download.php';
+        return new chip_download();
     }
 
     /* {LIST PLUGIN - Javascript} */

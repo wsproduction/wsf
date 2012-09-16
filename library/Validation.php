@@ -35,7 +35,7 @@ class Validation {
     }
 
     public function equalTo($equalTo = null, $message = null) {
-        self::$type[] = 'equalTo : "#' . $equalTo . '"';
+        self::$type[] = 'equalTo : "' . $equalTo . '"';
         if (isset($message)) {
             self::$msg[] = 'equalTo : "' . $message . '"';
         }
@@ -107,7 +107,12 @@ class Validation {
                 $count = count($data);
                 $idx = 1;
                 foreach ($data as $key => $value) {
-                    $d .= $key . ': "' . $value . '"';
+                    if (preg_match("/^#[A-Z,a-z,0-9]/", $value)) {
+                        $d .= $key . ': function(){return $("' . $value . '").val();}';
+                    } else {
+                        $d .= $key . ': "' . $value . '"';
+                    }
+
                     if ($idx < $count) {
                         $d .= ',';
                     }
