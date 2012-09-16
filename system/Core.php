@@ -18,6 +18,8 @@ class Core {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
         $url = rtrim($url, '/');
         $url = explode('/', $url);
+        
+        //$MainController =  new Controller();
 
         $ws = 0;
         if (Parser::webCheck($url[0])) {
@@ -44,10 +46,11 @@ class Core {
                     require $default_page;
 
                     if (class_exists('Index')) {
+                        define('MODEL_NAME', 'Index');
                         $controller = new Index();
 
                         if (method_exists($controller, 'index')) {
-                            $controller->loadModel('index');
+                            //$MainController->setModel('Index');
                             Src::javascript('index');
 
                             /*
@@ -81,8 +84,9 @@ class Core {
             }
 
             if (class_exists($url[0 + $ws])) {
-                $controller = new $url[0 + $ws];
-                $controller->loadModel($url[0 + $ws]);
+                define('MODEL_NAME', $url[0 + $ws]);
+                $controller = new $url[0 + $ws]();
+                //$controller->loadModel($url[0 + $ws]);
                 Src::javascript($url[0 + $ws]);
 
                 /*

@@ -5,7 +5,7 @@ class WSFramework {
     public static function run() {
         define('FRAMEWORK_ROOT', BASE_PATH . '/__MyFramework/');
         define('WEB_ROOT', BASE_PATH . '/__MyWeb/');
-        
+
         // System
         require_once FRAMEWORK_ROOT . '/system/Object.php';
         require_once FRAMEWORK_ROOT . '/system/Core.php';
@@ -13,7 +13,7 @@ class WSFramework {
         require_once FRAMEWORK_ROOT . '/system/Model.php';
         require_once FRAMEWORK_ROOT . '/system/View.php';
         require_once FRAMEWORK_ROOT . '/system/Web.php';
-        
+
         // Library
         require_once FRAMEWORK_ROOT . '/library/Message.php';
         require_once FRAMEWORK_ROOT . '/library/Content.php';
@@ -26,10 +26,10 @@ class WSFramework {
         require_once FRAMEWORK_ROOT . '/library/Form.php';
         require_once FRAMEWORK_ROOT . '/library/Validation.php';
         require_once FRAMEWORK_ROOT . '/library/Method.php';
-        
+
         // Website Rooter
         require_once WEB_ROOT . 'Router.php';
-        
+
         Core::build();
     }
 

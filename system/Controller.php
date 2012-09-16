@@ -1,13 +1,14 @@
 <?php
 
 class Controller {
-
+    
     function __construct() {
         $this->view = $this->loadView();
         $this->url = $this->loadURL();
         $this->message = $this->loadMessage();
         $this->content = $this->loadContent();
         $this->method = $this->loadMethod();
+        $this->model = $this->loadModel();
         
         Src::plugin()->jQuery();
         Src::plugin()->jQueryCookie();
@@ -16,12 +17,14 @@ class Controller {
         Src::plugin()->jDialogBox();
     }
 
-    public function loadModel($name) {
+    public function loadModel() {
+        $name = ucwords(MODEL_NAME);
+        echo $name;
         $path = Web::path() . 'models/' . $name . 'Model.php';
         if (file_exists($path)) {
             require $path;
             $modelName = $name . 'Model';
-            $this->model = new $modelName();
+            return new $modelName();
         }
     }
 
