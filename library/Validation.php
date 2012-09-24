@@ -26,6 +26,13 @@ class Validation {
             self::$msg[] = 'required : "' . $message . '"';
         }
     }
+    
+    public function number($message = null) {
+        self::$type[] = 'number : true';
+        if (isset($message)) {
+            self::$msg[] = 'number : "' . $message . '"';
+        }
+    }
 
     public function email($message = null) {
         self::$type[] = 'email : true';
@@ -155,6 +162,14 @@ class InputType {
             self::$list[] = '$("#' . self::$inputTypeID . '").numeric({allow: "' . $allow . '"});';
         } else {
             self::$list[] = '$("#' . self::$inputTypeID . '").numeric();';
+        }
+    }
+    
+    public function alpha($nocaps = false) {
+        if ($nocaps) {
+            self::$list[] = '$("#' . self::$inputTypeID . '").alpha({nocaps: ' . $nocaps . '});';
+        } else {
+            self::$list[] = '$("#' . self::$inputTypeID . '").alpha();';
         }
     }
 

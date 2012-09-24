@@ -19,7 +19,6 @@ class Controller {
 
     public function loadModel() {
         $name = ucwords(MODEL_NAME);
-        echo $name;
         $path = Web::path() . 'models/' . $name . 'Model.php';
         if (file_exists($path)) {
             require $path;

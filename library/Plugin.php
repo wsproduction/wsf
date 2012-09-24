@@ -19,6 +19,20 @@ class Plugin {
         return new PHPMailer();
     }
 
+    public function PHPExcel($api = '', $filter='') {
+        switch ($api) {
+            case 'IOFactory':
+                require FRAMEWORK_ROOT . '/plugin/php/PHPExcel/Classes/PHPExcel/IOFactory.php';
+                break;
+        }
+        
+        switch ($filter) {
+            case 'chunkReadFilter':
+                require FRAMEWORK_ROOT . '/plugin/php/PHPExcel/Filter/chunkReadFilter.php';
+                break;
+        }
+    }
+
     public function PHPUploader() {
         require FRAMEWORK_ROOT . '/plugin/php/Uploader/Upload.php';
         return new Upload();
@@ -76,7 +90,7 @@ class Plugin {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
         array_push(Src::$plugin, $pathSrc . 'jquery.alphanumeric.pack.js');
     }
-    
+
     public function jQueryBase64() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/jquery.base/';
         array_push(Src::$plugin, $pathSrc . 'base/jquery.base.min.js');
@@ -123,17 +137,20 @@ class Plugin {
     public function tokenInput() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/tokeninput/';
         array_push(Src::$plugin, $pathSrc . 'src/jquery.tokeninput.js');
-        //array_push(Src::$css, $pathSrc . 'styles/token-input.css');
         array_push(Src::$css, $pathSrc . 'styles/token-input-facebook.css');
     }
-	
+
     public function highChart() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/highchart/';
         array_push(Src::$plugin, $pathSrc . 'highcharts.js');
         array_push(Src::$plugin, $pathSrc . 'modules/exporting.js');
-        //array_push(Src::$css, $pathSrc . 'styles/token-input.css');
-        //array_push(Src::$css, $pathSrc . 'styles/token-input-facebook.css');
-    }	
+    }
+
+    public function flexiGrid() {
+        $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/flexigrid/';
+        array_push(Src::$plugin, $pathSrc . 'js/flexigrid.pack.js');
+        array_push(Src::$css, $pathSrc . 'css/flexigrid.pack.css');
+    }
 
 }
 
