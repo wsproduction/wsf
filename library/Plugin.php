@@ -84,6 +84,7 @@ class Plugin {
     public function jQueryValidation() {
         $pathSrc = URL::getService() . '://' . Web::$host . '/__MyFramework/plugin/js/';
         array_push(Src::$plugin, $pathSrc . 'jquery.validate.js');
+        array_push(Src::$plugin, $pathSrc . 'jquery.validate.custom.js');
     }
 
     public function jQueryAlphaNumeric() {

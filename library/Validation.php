@@ -103,6 +103,20 @@ class Validation {
             self::$msg[] = 'accept : "' . $message . '"';
         }
     }
+    
+    public function largerDateFrom($comparison = null, $message = null) {
+        self::$type[] = 'largerDateFrom : "' . $comparison . '"';
+        if (isset($message)) {
+            self::$msg[] = 'largerDateFrom : "' . $message . '"';
+        }
+    }
+    
+    public function smallerDateFrom($comparison = null, $message = null) {
+        self::$type[] = 'smallerDateFrom : "' . $comparison . '"';
+        if (isset($message)) {
+            self::$msg[] = 'smallerDateFrom : "' . $message . '"';
+        }
+    }
 
     public function remote($url = null, $type = null, $data = array()) {
         isset($url) ? self::$remote['url'] = $url : null;

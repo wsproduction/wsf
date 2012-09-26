@@ -18,7 +18,7 @@ class Core {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
         $url = rtrim($url, '/');
         $url = explode('/', $url);
-        
+
         //$MainController =  new Controller();
 
         $ws = 0;
