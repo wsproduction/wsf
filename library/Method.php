@@ -46,6 +46,14 @@ class Method {
         return $_FILES[$variableName][$content];
     }
 
+    public function isAjax() {
+        $bool = false;
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $bool = true;
+        }
+        return $bool;
+    }
+
 }
 
 ?>

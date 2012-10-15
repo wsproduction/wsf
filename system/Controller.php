@@ -9,12 +9,6 @@ class Controller {
         $this->content = $this->loadContent();
         $this->method = $this->loadMethod();
         $this->model = $this->loadModel();
-        
-        Src::plugin()->jQuery();
-        Src::plugin()->jQueryCookie();
-        Src::plugin()->jQueryJson();
-        Src::plugin()->jQueryUI();
-        Src::plugin()->jDialogBox();
     }
 
     public function loadModel() {

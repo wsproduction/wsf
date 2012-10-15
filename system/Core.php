@@ -67,8 +67,11 @@ class Core {
                         echo "Class <b>Index</b> tidak ditemukan";
                     }
                 } else {
+                    /*
                     require Web::path() . 'controllers/Error.php';
                     $controller = new Error();
+                     */
+                    echo '<i><b>Error 404 :</b> Halaman tidak ditemukan.</i>';
                     return false;
                 }
                 return false;
@@ -78,15 +81,18 @@ class Core {
             if (file_exists($file)) {
                 require $file;
             } else {
+                /*
                 require Web::path() . 'controllers/Error.php';
                 $controller = new Error();
+                 */
+                echo '<i><b>Error 404 :</b> Halaman tidak ditemukan.</i>';
                 return false;
             }
 
             if (class_exists($url[0 + $ws])) {
                 define('MODEL_NAME', $url[0 + $ws]);
                 $controller = new $url[0 + $ws]();
-                //$controller->loadModel($url[0 + $ws]);
+                
                 Src::javascript($url[0 + $ws]);
 
                 /*

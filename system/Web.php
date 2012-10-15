@@ -15,6 +15,10 @@ class Web {
         
     }
     
+    public static function getHost() {
+        return self::$host;
+    }
+
     public static function getSubDomain() {
         $subdomain = explode('.', self::$host);
         return $subdomain[0];
@@ -23,7 +27,7 @@ class Web {
     public static function setTitle($text = '') {
         self::$title = $text;
     }
-    
+
     public static function getTitle($boolWebName = false, $sparator = '') {
         $title = self::$title;
         if ($boolWebName) {
@@ -31,15 +35,15 @@ class Web {
         }
         return $title;
     }
-    
+
     public static function main($webName = '', $webFolder = '', $webTemplate = '') {
         self::$webName = $webName;
         self::$webFolder = $webFolder;
         self::$webTemplate = $webTemplate;
     }
 
-    public static function child($webName = '', $webAlias='', $webFolder = '', $webTemplate = '') {
-        self::$listChild[$webAlias] = array( $webName, $webFolder, $webTemplate);
+    public static function child($webName = '', $webAlias = '', $webFolder = '', $webTemplate = '') {
+        self::$listChild[$webAlias] = array($webName, $webFolder, $webTemplate);
     }
 
     public static function path() {

@@ -30,7 +30,7 @@ class Parser {
         $css = '';
         if (isset($param)) {
             foreach ($param as $value) {
-                $css .= '<link rel="stylesheet" href="' . $value . '" />';
+                $css .= '<link rel="stylesheet" type="text/css" href="' . $value . '" />';
             }
         }
         return $css;
