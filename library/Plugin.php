@@ -86,7 +86,7 @@ class Plugin {
     public function jQueryValidation() {
         //array_push(Src::$plugin, $this->path_src . 'js/jquery.validate.js');
         Src::$plugin[6] = $this->path_src . 'js/jquery.validate.js';
-        array_push(Src::$plugin, $this->path_src . 'js/jquery.validate.custom.js');
+        Src::$plugin[26] = $this->path_src . 'js/jquery.validate.custom.js';
     }
 
     public function jQueryAlphaNumeric() {

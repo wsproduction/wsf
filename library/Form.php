@@ -196,8 +196,13 @@ class Form {
         self::$optionList = $ol;
     }
 
-    public static function label($tittle = null, $for = null) {
-        echo '<label for="' . $for . '">' . $tittle . '</label>';
+    public static function label($title = null, $for = null, $echo = true) {
+        $label = '<label for="' . $for . '">' . $title . '</label>';
+        if ($echo) {
+            echo $label;
+        } else {
+            return $label;
+        }
     }
 
     public static function passMeter() {

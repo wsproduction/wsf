@@ -26,7 +26,7 @@ class URL {
         return $ptcl;
     }
     
-    public static function link($url, $label,$echo='echo',$properties=array()){
+    public static function link($url, $label, $echo = true, $properties=array()){
         $p = '';
         if (count($properties)>0){
             foreach ($properties as $key => $value) {
@@ -34,9 +34,9 @@ class URL {
             }
         }
         $link = '<a href="' . $url . '" ' . $p .' >' . $label . '</a>';
-        if ($echo=='echo') {
+        if ($echo) {
             echo $link;
-        } else if ($echo == 'attach') {
+        } else {
             return $link;
         }
     }
