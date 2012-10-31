@@ -1,8 +1,10 @@
 RewriteEngine On
 
+RewriteRule ^ws/24/f/src/asset/plugin/(.*)$ __MyFramework/plugin/$1 [L]
+RewriteRule ^web/src/(.*)/asset/(.*)$ __MyWeb/$1/asset/$2 [L]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
-

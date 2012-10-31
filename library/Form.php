@@ -21,7 +21,7 @@ class Form {
         
     }
 
-    public static function begin($name = '', $action = '', $method = '', $enctype = false) {
+    public static function begin($name = '', $action = '', $method = '', $enctype = false, $target = null) {
         self::$frmID = $name;
         if (Web::$childStatus) {
             $action = URL::getService() . '://' . Web::$host . '/' . Web::$webAlias . '/' . $action;
@@ -33,8 +33,13 @@ class Form {
         if ($enctype) {
             $valEnctype = 'enctype="multipart/form-data"';
         }
+        
+        $valTarget = '';
+        if (!empty($target)) {
+            $valTarget = 'target = "' . $target . '" ';
+        }
 
-        echo '<form id="' . $name . '" name="' . $name . '" action="' . $action . '" method="' . $method . '" ' . $valEnctype . '>';
+        echo '<form id="' . $name . '" name="' . $name . '" action="' . $action . '" method="' . $method . '" ' . $valEnctype . ' ' . $valTarget .' >';
     }
 
     public static function end() {

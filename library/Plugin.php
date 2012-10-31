@@ -59,7 +59,7 @@ class Plugin {
     
     public function jQueryUI() {
         //array_push(Src::$plugin, $this->path_src . 'js/jquery-ui/jquery-ui-1.8.13.custom.min.js');
-        Src::$plugin[1] = $this->path_src . 'js/jquery-ui/jquery-ui-1.8.13.custom.min.js';
+        Src::$plugin[1] = $this->path_src . 'js/jquery-ui/jquery-ui-1.9.1.custom.js';
         array_push(Src::$css, $this->path_src . 'js/jquery-ui/css/smoothness/jquery-ui-1.8.13.custom.css');
     }
 

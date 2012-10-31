@@ -11,7 +11,7 @@ jQuery.validator.addMethod("largerDateFrom", function(value, element, param) {
     var val1 = new Date(temp1);
     var val2 = new Date(temp2);
     
-    return this.optional(element) || val2 > val1;
+    return this.optional(element) || val2 >= val1;
 }, "Incorect date.");
 
 jQuery.validator.addMethod("smallerDateFrom", function(value, element, param) {
@@ -21,5 +21,5 @@ jQuery.validator.addMethod("smallerDateFrom", function(value, element, param) {
     var val1 = new Date(temp1);
     var val2 = new Date(temp2);
     
-    return this.optional(element) || val2 > val1;
+    return this.optional(element) || val2 >= val1;
 }, "Incorect date.");
