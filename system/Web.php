@@ -51,7 +51,7 @@ class Web {
     }
 
     public static function config() {
-        require self::path() . '/config/database.php';
+        require self::path() . 'config/database.php';
     }
 
 }
