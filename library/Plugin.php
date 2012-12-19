@@ -53,7 +53,7 @@ class Plugin {
     /* {LIST PLUGIN - Javascript} */
 
     public function jQuery() {
-        Src::$plugin[0] = $this->path_src . 'js/jquery-1.8.3.min.js';
+        Src::$plugin[0] = $this->path_src . 'js/jquery-1.8.2.min.js';
     }
     
     public function jQueryUI() {
@@ -125,7 +125,7 @@ class Plugin {
     }
 
     public function jQueryAddress() {
-        Src::$plugin[20] = $this->path_src . 'js/jquery.address-1.4.min.js';
+        Src::$plugin[20] = $this->path_src . 'js/jquery.address-1.5.min.js';
     }
     
 }
