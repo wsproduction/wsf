@@ -56,9 +56,9 @@ class Plugin {
         Src::$plugin[0] = $this->path_src . 'js/jquery-1.8.2.min.js';
     }
     
-    public function jQueryUI() {
+    public function jQueryUI($themes = 'smoothness') {
         Src::$plugin[1] = $this->path_src . 'js/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js';
-        array_push(Src::$css, $this->path_src . 'js/jquery-ui-1.9.2.custom/css/smoothness/jquery-ui-1.9.2.custom.min.css');
+        array_push(Src::$css, $this->path_src . 'js/jquery-ui-1.9.2.custom/css/' . $themes . '/jquery-ui-1.9.2.custom.min.css');
     }
 
     public function jQueryForm() {
