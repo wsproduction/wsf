@@ -1,54 +1,57 @@
 <?
 
 /*
-*
-* Class : Terbilang
-* Spell quantity numbers in Indonesian or Malay Language
-*
-*
-* author: huda m elmatsani
-* 21 September 2004
-* freeware
-*
-* example:
-* $bilangan = new Terbilang;
-* echo $bilangan -> eja(12415);
-* result: dua belas ribu empat ratus lima belas
-*
-*
-*/
+ *
+ * Class : Terbilang
+ * Spell quantity numbers in Indonesian or Malay Language
+ *
+ *
+ * author: huda m elmatsani
+ * 21 September 2004
+ * freeware
+ *
+ * example:
+ * $bilangan = new Terbilang;
+ * echo $bilangan -> eja(12415);
+ * result: dua belas ribu empat ratus lima belas
+ *
+ *
+ */
 
 Class Terbilang {
 
     function terbilang() {
-        $this->dasar = array(1=>'satu','dua','tiga','empat','lima','enam',
-        'tujuh','delapan','sembilan');
+        $this->dasar = array(1 => 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam',
+            'tujuh', 'delapan', 'sembilan');
 
-        $this->angka = array(1000000000,1000000,1000,100,10,1);
-        $this->satuan = array('milyar','juta','ribu','ratus','puluh','');
+        $this->angka = array(1000000000, 1000000, 1000, 100, 10, 1);
+        $this->satuan = array('milyar', 'juta', 'ribu', 'ratus', 'puluh', '');
     }
 
     function eja($n) {
+        $i = 0;
+        $str = '';
+        while ($n != 0) {
 
-    $i=0;
-    while($n!=0){
+            $count = (int) ($n / $this->angka[$i]);
 
-        $count = (int)($n/$this->angka[$i]);
-
-        if($count>=10) $str .= $this->eja($count). " ".$this->satuan[$i]." ";
-        else if($count > 0 && $count < 10)
-            $str .= $this->dasar[$count] . " ".$this->satuan[$i]." ";
+            if ($count >= 10)
+                $str .= $this->eja($count) . " " . $this->satuan[$i] . " ";
+            else if ($count > 0 && $count < 10)
+                $str .= $this->dasar[$count] . " " . $this->satuan[$i] . " ";
 
 
             $n -= $this->angka[$i] * $count;
             $i++;
         }
-        $str = preg_replace("/satu puluh (\w+)/i","\\1 belas",$str);
-        $str = preg_replace("/satu (ribu|ratus|puluh|belas)/i","se\\1",$str);
+        
+        $str = preg_replace("/satu puluh (\w+)/i", "\\1 belas", $str);
+        $str = preg_replace("/satu (ribu|ratus|puluh|belas)/i", "se\\1", $str);
 
 
         return $str;
     }
+
 }
 
 ?>

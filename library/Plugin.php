@@ -50,12 +50,17 @@ class Plugin {
         return new chip_download();
     }
 
+    public function PHPTerbilang() {
+        require FRAMEWORK_ROOT . '/plugin/php/Terbilang/class.terbilang.php';
+        return new Terbilang();
+    }
+
     /* {LIST PLUGIN - Javascript} */
 
     public function jQuery() {
         Src::$plugin[0] = $this->path_src . 'js/jquery-1.8.2.min.js';
     }
-    
+
     public function jQueryUI($themes = 'smoothness') {
         Src::$plugin[1] = $this->path_src . 'js/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js';
         array_push(Src::$css, $this->path_src . 'js/jquery-ui-1.9.2.custom/css/' . $themes . '/jquery-ui-1.9.2.custom.min.css');
@@ -68,7 +73,7 @@ class Plugin {
     public function jQueryAutoNumeric() {
         Src::$plugin[3] = $this->path_src . 'js/jquery.auto.numeric.js';
     }
-    
+
     public function jQueryCookie() {
         Src::$plugin[4] = $this->path_src . 'js/jquery.cookie.js';
     }
@@ -127,6 +132,6 @@ class Plugin {
     public function jQueryAddress() {
         Src::$plugin[20] = $this->path_src . 'js/jquery.address-1.5.min.js';
     }
-    
+
 }
 
