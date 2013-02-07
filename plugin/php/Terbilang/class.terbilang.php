@@ -20,38 +20,63 @@
 
 Class Terbilang {
 
-    function terbilang() {
-        $this->dasar = array(1 => 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam',
-            'tujuh', 'delapan', 'sembilan');
-
-        $this->angka = array(1000000000, 1000000, 1000, 100, 10, 1);
-        $this->satuan = array('milyar', 'juta', 'ribu', 'ratus', 'puluh', '');
+    private function kekata($x) {
+        $x = abs($x);
+        $angka = array("", "satu", "dua", "tiga", "empat", "lima",
+            "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+        $temp = "";
+        if ($x < 12) {
+            $temp = " " . $angka[$x];
+        } else if ($x < 20) {
+            $temp = $this->kekata($x - 10) . " belas";
+        } else if ($x < 100) {
+            $temp = $this->kekata($x / 10) . " puluh" . $this->kekata($x % 10);
+        } else if ($x < 200) {
+            $temp = " seratus" . $this->kekata($x - 100);
+        } else if ($x < 1000) {
+            $temp = $this->kekata($x / 100) . " ratus" . $this->kekata($x % 100);
+        } else if ($x < 2000) {
+            $temp = " seribu" . $this->kekata($x - 1000);
+        } else if ($x < 1000000) {
+            $temp = $this->kekata($x / 1000) . " ribu" . $this->kekata($x % 1000);
+        } else if ($x < 1000000000) {
+            $temp = $this->kekata($x / 1000000) . " juta" . $this->kekata($x % 1000000);
+        } else if ($x < 1000000000000) {
+            $temp = $this->kekata($x / 1000000000) . " milyar" . $this->kekata(fmod($x, 1000000000));
+        } else if ($x < 1000000000000000) {
+            $temp = $this->kekata($x / 1000000000000) . " trilyun" . $this->kekata(fmod($x, 1000000000000));
+        }
+        return $temp;
     }
 
-    function eja($n) {
-        $i = 0;
-        $str = '';
-        while ($n != 0) {
+    private function tkoma($x) {
+        $x = stristr($x, '.');
+        $angka = array("nol", "satu", "dua", "tiga", "empat", "lima",
+            "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+        $temp = '';
+        $length = strlen($x);
+        $pos = 1;
 
-            $count = (int) ($n / $this->angka[$i]);
-
-            if ($count >= 10)
-                $str .= $this->eja($count) . " " . $this->satuan[$i] . " ";
-            else if ($count > 0 && $count < 10)
-                $str .= $this->dasar[$count] . " " . $this->satuan[$i] . " ";
-
-
-            $n -= $this->angka[$i] * $count;
-            $i++;
+        while ($pos < $length) {
+            $char = substr($x, $pos, 1);
+            $pos++;
+            $temp .= ' ' . $angka[$char];
         }
-        
-        $str = preg_replace("/satu puluh (\w+)/i", "\\1 belas", $str);
-        $str = preg_replace("/satu (ribu|ratus|puluh|belas)/i", "se\\1", $str);
+        return $temp;
+    }
 
-
-        return $str;
+    public function eja($x) {
+        if ($x < 0) {
+            $hasil = "minus " . trim($this->kekata($x));
+        } else {
+            $hasil = trim($this->kekata($x));
+            $poin = trim($this->tkoma($x));
+            if ($poin) {
+                $hasil .= ' koma ' . $poin;
+            }
+        }
+        return $hasil;
     }
 
 }
-
 ?>
