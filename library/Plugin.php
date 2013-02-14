@@ -10,10 +10,10 @@ class Plugin {
 
     /* {LIST PLUGIN - PHP} */
 
-    public function tcPdf() {
+    public function tcPdf($orientation = 'P', $unit = 'mm', $format = 'A4', $unicode = true, $encoding = 'UTF-8', $diskcache = false, $pdfa = false) {
         require FRAMEWORK_ROOT . '/plugin/php/tcpdf/config/lang/eng.php';
         require FRAMEWORK_ROOT . '/plugin/php/tcpdf/tcpdf.php';
-        return new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        return new TCPDF($orientation, $unit, $format, $unicode, $encoding, $diskcache, $pdfa);
     }
 
     public function PHPMailer() {
