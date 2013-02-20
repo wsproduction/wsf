@@ -133,5 +133,12 @@ class Plugin {
         Src::$plugin[20] = $this->path_src . 'js/jquery.address-1.5.min.js';
     }
 
+    public function jQueryMultiSelect() {
+        Src::$plugin[21] = $this->path_src . 'js/jquery-ui-widget/multiselect/jquery.multiselect.js';
+        Src::$plugin[22] = $this->path_src . 'js/jquery-ui-widget/multiselect/jquery.multiselect.filter.js';
+        array_push(Src::$css, $this->path_src . 'js/jquery-ui-widget/multiselect/jquery.multiselect.css');
+        array_push(Src::$css, $this->path_src . 'js/jquery-ui-widget/multiselect/jquery.multiselect.filter.css');
+    }
+
 }
 
