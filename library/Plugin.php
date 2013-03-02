@@ -140,5 +140,10 @@ class Plugin {
         array_push(Src::$css, $this->path_src . 'js/jquery-ui-widget/multiselect/jquery.multiselect.filter.css');
     }
 
+    public function jQueryGlobalize() {
+        Src::$plugin[23] = $this->path_src . 'js/jquery-ui-widget/globalize/globalize.js';
+        Src::$plugin[24] = $this->path_src . 'js/jquery-ui-widget/globalize/globalize.culture.de-DE.js';
+    }
+
 }
 
