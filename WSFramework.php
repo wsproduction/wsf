@@ -26,6 +26,7 @@ class WSFramework {
         require_once FRAMEWORK_ROOT . '/library/Form.php';
         require_once FRAMEWORK_ROOT . '/library/Validation.php';
         require_once FRAMEWORK_ROOT . '/library/Method.php';
+        require_once FRAMEWORK_ROOT . '/library/Request.php';
 
         // Website Rooter
         require_once WEB_ROOT . 'Router.php';

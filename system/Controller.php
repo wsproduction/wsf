@@ -8,6 +8,7 @@ class Controller {
         $this->message = $this->loadMessage();
         $this->content = $this->loadContent();
         $this->method = $this->loadMethod();
+        $this->request = $this->loadRequest();
         $this->model = $this->loadModel();
     }
 
@@ -41,5 +42,9 @@ class Controller {
     
     public function loadMethod() {
         return new Method();
+    }
+    
+    public function loadRequest() {
+        return new Request();
     }
 }
