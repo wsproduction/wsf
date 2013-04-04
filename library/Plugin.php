@@ -145,5 +145,9 @@ class Plugin {
         Src::$plugin[24] = $this->path_src . 'js/jquery-ui-widget/globalize/globalize.culture.de-DE.js';
     }
 
+    public function jsAccounting() {
+        Src::$plugin[25] = $this->path_src . 'js/accounting/accounting.min.js';
+    }
+
 }
 
