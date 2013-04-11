@@ -19,8 +19,11 @@ class Core {
         $url = rtrim($url, '/');
         $url = explode('/', $url);
 
-        //$MainController =  new Controller();
-
+        /*
+         * Cek URI 
+         * Contoh : http://www.warmansuganda.com/a/b/c...
+         * Apakah (a) termasuk kedalam anak web atau bukan, jika bukan berarti statusnya dianggap nama halaman
+         */
         $ws = 0;
         if (Parser::webCheck($url[0])) {
             $ws = 1;
@@ -37,9 +40,14 @@ class Core {
             Web::$childStatus = false;
         }
 
+
+        # Load Data Configuration
         Web::config();
 
         if (self::execute()) {
+            /*
+             * Cek URI, Jika tidak ditemukan akan memanggil halaman default (index)
+             */
             if (empty($url[0 + $ws])) {
                 $default_page = Web::path() . 'controllers/Index.php';
                 if (file_exists($default_page)) {
@@ -50,7 +58,6 @@ class Core {
                         $controller = new Index();
 
                         if (method_exists($controller, 'index')) {
-                            //$MainController->setModel('Index');
                             Src::javascript('index');
 
                             /*
@@ -67,10 +74,6 @@ class Core {
                         echo "Class <b>Index</b> tidak ditemukan";
                     }
                 } else {
-                    /*
-                    require Web::path() . 'controllers/Error.php';
-                    $controller = new Error();
-                     */
                     echo '<i><b>Error 404 :</b> Halaman tidak ditemukan.</i>';
                     return false;
                 }
@@ -81,18 +84,14 @@ class Core {
             if (file_exists($file)) {
                 require $file;
             } else {
-                /*
-                require Web::path() . 'controllers/Error.php';
-                $controller = new Error();
-                 */
                 echo '<i><b>Error 404 :</b> Halaman tidak ditemukan.</i>';
                 return false;
             }
 
             if (class_exists($url[0 + $ws])) {
                 define('MODEL_NAME', $url[0 + $ws]);
-                $controller = new $url[0 + $ws]();
-                
+                $controller = new $url[0 + $ws] ( );
+
                 Src::javascript($url[0 + $ws]);
 
                 /*
@@ -101,23 +100,32 @@ class Core {
                  * dapat di panggil di Views
                  */ Object::get_user_vars($controller);
 
-
-                if (isset($url[2 + $ws])) {
+                if (isset($url[1 + $ws])) {
+                    /*
+                     * Statement ini dijalankan ketika nama method terdeklarasi id URL
+                     */
                     if (method_exists($controller, $url[1 + $ws])) {
-                        $controller->{$url[1 + $ws]}($url[2 + $ws]);
+
+                        # Mendeklarasikan arguments
+                        $arg_value = array();
+                        $arg_idx_loop = 2;
+                        $arg_status_loop = true;
+                        while ($arg_status_loop) {
+                            if (isset($url[$arg_idx_loop + $ws])) {
+                                $arg_value[] = $url[$arg_idx_loop + $ws];
+                            } else {
+                                $arg_status_loop = false;
+                            }
+                            $arg_idx_loop++;
+                        }
+
+                        # Memanggil Method $url[1 + $ws] dengan argumen yang tidak terdefinisi
+                        call_user_func_array(array($controller, $url[1 + $ws]), $arg_value);
                     } else {
                         echo 'Method <b>' . $url[1 + $ws] . '</b> tidak ditemukan pada Class <b>' . ucwords($url[0 + $ws]) . '</b>';
                     }
                 } else {
-                    if (isset($url[1 + $ws])) {
-                        if (method_exists($controller, $url[1 + $ws])) {
-                            $controller->{$url[1 + $ws]}();
-                        } else {
-                            echo 'Method <b>' . $url[1 + $ws] . '</b> tidak ditemukan pada Class <b>' . ucwords($url[0 + $ws]) . '</b>';
-                        }
-                    } else {
-                        $controller->index();
-                    }
+                    $controller->index();
                 }
             } else {
                 echo 'Class <b>' . $url[0 + $ws] . '<b> tidak ditemukan';
