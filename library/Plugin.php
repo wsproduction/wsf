@@ -149,5 +149,17 @@ class Plugin {
         Src::$plugin[25] = $this->path_src . 'js/accounting/accounting.min.js';
     }
 
+    public function nivoSlider() {
+        Src::$plugin[26] = $this->path_src . 'js/nivo-slider/jquery.nivo.slider.pack.js';
+        array_push(Src::$css, $this->path_src . 'js/nivo-slider/themes/default/default.css');
+        array_push(Src::$css, $this->path_src . 'js/nivo-slider/themes/orman/orman.css');
+        array_push(Src::$css, $this->path_src . 'js/nivo-slider/themes/pascal/pascal.css');
+    }
+
+    public function jsCountDown() {
+        Src::$plugin[27] = $this->path_src . 'js/jquery.countdown/jquery.countdown.js';
+        array_push(Src::$css, $this->path_src . 'js/jquery.countdown/jquery.countdown.css');
+    }
+
 }
 
