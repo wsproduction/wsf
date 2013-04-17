@@ -130,7 +130,7 @@ class Plugin {
     }
 
     public function jQueryAddress() {
-        Src::$plugin[20] = $this->path_src . 'js/jquery.address-1.5.min.js';
+        Src::$plugin[20] = $this->path_src . 'js/jquery.address/jquery.address-1.5.min.js';
     }
 
     public function jQueryMultiSelect() {
